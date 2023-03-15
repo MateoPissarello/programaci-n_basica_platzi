@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RPS</title>
+    <script>
+      //1 is rock, 2 is paper, 3 is scissors
+      function random(min, max) {
+        return Math.floor(Math.random() * (max - min + 1) + min);
+      }
+      function chooseOption(optionnumber, name = "You") {
+        let answer = null;
+        if (optionnumber == "1") {
+          answer = "🪨 " + name + " choose rock 🪨";
+        } else if (optionnumber == "2") {
+          answer = "🗞️ " + name + " choose paper 🗞️";
+        } else if (optionnumber == "3") {
+          answer = "✂️ " + name + " choose scissors ✂️";
+        } else {
+          answer = "❌ The option you chose is not correct ❌";
+        }
+        alert(answer);
+        return optionnumber;
+      }
+      function start_game(user_decision, pc_decision) {
+        if (pc_decision == user_decision) {
+          alert("Tie!");
+        } else if (
+          (user_decision == 1 && pc_decision == 3) ||
+          (user_decision == 2 && pc_decision == 1) ||
+          (user_decision == 3 && pc_decision == 1)
+        ) {
+          alert("🏆 " + name + " WON 🏆");
+        } else {
+          alert("🏆 PC WON 🏆");
+        }
+      }
+      let pc = random(1, 3);
+      name = prompt("What is your name?");
+      options = chooseOption(
+        prompt("Choose: 1 for rock, 2  for paper, 3 for scissors"),
+        name
+      );
+      pc = chooseOption(pc, "Pc");
+      start_game(options, pc);
+    </script>
+  </head>
+  <body>
+    <h1>🪨, 🗞️ or ✂️</h1>
+  </body>
+</html>
